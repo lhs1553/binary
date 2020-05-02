@@ -1,0 +1,21 @@
+#!/bin/sh
+
+CLIENT_PATH=/root/client
+BACK_PATH=/root/bithumb
+
+rm -rf tmp ; mkdir tmp ;  
+cd tmp;
+
+wget https://github.com/lhs1553/binary/raw/hsim/bt.tar
+
+tar -xvf bt.tar
+
+cp -rf bithumb/*.jar $BACK_PATH/
+rm -rf $CLIENT_PATH 
+
+mkdir $CLIENT_PATH
+cp -rf client/* $CLIENT_PATH
+
+/root/script/shutdown.sh
+/root/script/startup.sh
+
